@@ -12,31 +12,16 @@ function selectFoto(event) {
   console.log(event.target.nodeName);
   if (event.target.nodeName !== "IMG") {
     return;
-  }
-  console.log(origImg);
+  }/* 
+  console.log(origImg); */
   
   event.preventDefault();
-  const instance = basicLightbox.create(`
-    <img src="${origImg}" width="800" height="600">
-`,
-  {
-            onShow: () => {
-                galleryPalette.addEventListener(`keydown`, onEscapePress), document.body.classList.add('no-scroll')
-            },
-            onClose: () => {
-                galleryPalette.removeEventListener(`keydown`, onEscapePress), document.body.classList.remove('no-scroll')
-            },
-        });
-  
-  instance.show()
-      function onEscapePress(event) {
-        if (event.code === "Escape") {
-            instance.close()
-        }
-    }
+
+  /* 
+  instance.show(); */
 }
 
-const lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250, captionClass: 'caption--bg' });
+const lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250,  captionsData: 'alt' });
 
 
 
